@@ -58,15 +58,13 @@ function returnOdds(array) {
     
     console.log(findMax([1,25,6,3]))
     
-    // Alternatively, we could use the Math.max method
+    // Alternatively, we could use the Math.max method:
     
     function findMax(array){
       return Math.max(...array)
     }
     
     console.log(findMax([1,25,6,3]))
-    
-    
     
     
     
@@ -128,29 +126,58 @@ function returnOdds(array) {
         for (let i = obj.length; i > 0; i--){
           obj[i] = obj[i-1]
         }
+    // shift each element one position to the right
         obj[0] = value;
+    // increment the length property
         obj.length++;
+    // return the new length
         return obj.length
       }
       
       obj.shift = function(){
+    // if the length of the object is empty, if so return undefined
         if (obj.length === 0){
           return undefined
         }
+    // create a variable for the first element and initialize it to the value of obj at key 0
         const firstEl = obj[0];
-        
+    // iterate over the obj
         for (let i = 0; i < obj.length; i++){
+    // shift each element one position to the left
             obj[i] = obj[i+1];
         }
+    // delete the last element of the object
         delete obj[obj.length-1]
+    // decrement the length property
         obj.length--
+    // return firstEl
         return firstEl
       }
+    // return the obj
       return obj
     }
-
     
     
-    // {0:1,1:2,2:3,3:4,4:5,5:6}
+    let testArray = createArray();
+    testArray.push(2)
+    testArray.push(3)
+    testArray.push(4)
     
+    console.log(testArray.pop())
+    
+    
+    let testArray2 = createArray();
+    testArray2.unshift(5)
+    testArray2.unshift(6)
+    testArray2.unshift(7)
+    
+    console.log(testArray2.shift())
+    
+    
+    let testArray3 = createArray();
+    testArray3.unshift(5)
+    testArray3.unshift(6)
+    testArray3.unshift(7)
+    
+    console.log(testArray3.shift())
     
